@@ -1,0 +1,19 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+ENTITY fullsubstractor IS
+	PORT (
+		A, B, C : IN STD_LOGIC;
+		DIFFERENCE, BORROW : OUT STD_LOGIC
+	);
+END fullsubstractor;
+
+ARCHITECTURE arch_fullsubstractor OF fullsubstractor IS
+BEGIN
+
+	DIFFERENCE <= A XOR B XOR C;
+	BORROW <= ((NOT A) AND (B OR C)) OR (B AND C);
+
+END arch_fullsubstractor;
